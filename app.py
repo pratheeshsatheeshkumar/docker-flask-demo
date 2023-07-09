@@ -1,4 +1,4 @@
-from flask import Flask
+cfrom flask import Flask
 from flask import render_template
 import socket
 import random
