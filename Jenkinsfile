@@ -24,7 +24,7 @@ pipeline {
         }
          stage('Run image') {
             steps{
-                sh 'docker container rm $(docker container ls -qa)'
+                sh 'docker container stop $(docker container ls -qa)'
                 sh 'docker run -d --rm --name $BUILD_NUMBER -p 8081:8080 pratheeshsatheeshkumar/simpleflaskapp:latest'
             }
         }
