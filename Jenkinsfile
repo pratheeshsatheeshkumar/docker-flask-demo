@@ -24,7 +24,12 @@ pipeline {
         }
          stage('Run image') {
             steps{
-                sh "docker container stop \$(docker container ls -q)"
+                script {
+                    def containerId = sh(script: "docker container ls -q", returnStdout: true).trim()
+                    if (containerId) {
+                        sh "docker container stop $containerId"
+            }
+        }
                 sh 'docker run -d --rm --name $BUILD_NUMBER -p 8081:8080 pratheeshsatheeshkumar/simpleflaskapp:latest'
             }
         }
