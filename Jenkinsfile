@@ -2,7 +2,7 @@ pipeline {
     agent any 
     environment {
     DOCKERHUB_CREDENTIALS = credentials('DOCKERHUB-CRED')
-    COMMIT_ID = "$(GIT_COMMIT)"
+    COMMIT_ID = "${GIT_COMMIT}"
         
     }
     stages { 
