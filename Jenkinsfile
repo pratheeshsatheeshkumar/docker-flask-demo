@@ -32,7 +32,7 @@ pipeline {
                         sh "docker container stop $containerId"
             }
         }
-                sh 'docker run -d --rm --name $BUILD_NUMBER -p 8081:8080 pratheeshsatheeshkumar/simpleflaskapp:latest'
+                sh 'docker run -d --rm --name ${env.COMMIT_ID} -p 8081:8080 pratheeshsatheeshkumar/simpleflaskapp:latest'
             }
         }
 }
